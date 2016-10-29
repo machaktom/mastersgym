@@ -1,0 +1,36 @@
+#Use Casess for the system:
+
+* add user 
+	1. add membership
+	2. Gather statistics of training
+	3. Gather statistics of buys and what products
+	4. 
+
+* membership span from - to
+
+* type of membership
+	1. season
+	2. year
+	3. klippkort
+	4. membership
+
+* Type of Payment
+	1. Cash
+	2. Swish
+	3. BankGiro
+	4. AutoGiro
+
+* add products that are for sale in the gym 
+	1. read barcode of product to register it
+	2. add cost
+	3. Product name
+
+* add support for "Credit" buys.
+	1. member uses Cardskipper barcode to register and then product, to register buy.
+	2. Create reminders of payment after 1 week to enduser thru email.
+	3. give option to send out faktura.
+
+* add support for booking of PT
+
+* add support for booking whole GYM for an event, date/time span
+
