@@ -34,3 +34,10 @@
 
 * add support for booking whole GYM for an event, date/time span
 
+**GUI
+
+* Training Template
+	1. stats on:
+	2. Average number of checked in at what time
+	3. level of peoples training.
+	4.
