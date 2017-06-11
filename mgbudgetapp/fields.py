@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class IntegerRangeField(models.IntegerField):
@@ -10,3 +11,8 @@ class IntegerRangeField(models.IntegerField):
         defaults = {'min_value': self.min_value, 'max_value': self.max_value}
         defaults.update(kwargs)
         return super(IntegerRangeField, self).formfield(**defaults)
+
+
+class AutoDateTimeField(models.DateTimeField):
+    def pre_save(self, model_instance, add):
+        return timezone.now()

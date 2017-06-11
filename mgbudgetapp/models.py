@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.db import models
-from django.utils import timezone
 import fields
+import django
 
 
 class AccessRule(models.Model):
@@ -56,18 +56,13 @@ class Fighter(models.Model):
     name = models.CharField(max_length=50)
     credits = models.IntegerField(default=0)
     cardSkipperId = models.CharField(max_length=50)
-    registered = models.DateTimeField(editable=False)
+    registered = models.DateField(default=django.utils.timezone.now)
     birthDate = models.DateField()
     level = models.CharField(max_length=100, default=UNKNOWN, choices=FIGHTER_LEVEL)
     accessRules = models.ManyToManyField(AccessRule, verbose_name='Access rules')
 
     def __str__(self):
         return self.name + " " + self.surname + " (" + str(self.birthDate.year) + ")"
-
-    def save(self, *args, **kwargs):
-        if not self.registered:
-            self.registered = timezone.now()
-        return super(Fighter, self).save(*args, **kwargs)
 
 
 class Product(models.Model):
@@ -105,7 +100,7 @@ class Season(models.Model):
     begin = models.DateField()
     end = models.DateField()
     product = models.ForeignKey(Product, on_delete=models.CASCADE, null=False)
-    weakSchema = models.ForeignKey(WeekSchema)
+    weakSchema = models.ForeignKey(WeekSchema, null=True)
 
     def __str__(self):
         return self.season + "(" + self.year + ")"
